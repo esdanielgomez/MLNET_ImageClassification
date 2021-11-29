@@ -1,0 +1,25 @@
+﻿{
+  "TrainingConfigurationVersion": 0,
+  "TrainingTime": 2147482,
+  "Scenario": {
+    "ScenarioType": "ImageClassification"
+  },
+  "DataSource": {
+    "DataSourceType": "Folder",
+    "FolderPath": "C:\\Users\\Daniel\\Desktop\\Face mask classification"
+  },
+  "Environment": {
+    "EnvironmentType": "LocalCPU"
+  },
+  "RunHistory": {
+    "Trials": [
+      {
+        "TrainerName": "ImageClassification",
+        "Score": 1.0,
+        "RuntimeInSeconds": 371.3
+      }
+    ],
+    "Pipeline": "[{\"EstimatorType\":\"MapValueToKey\",\"Inputs\":[\"Label\"],\"Outputs\":[\"Label\"]},{\"EstimatorType\":\"LoadRawImageBytes\",\"Inputs\":[\"ImageSource\"],\"Outputs\":[\"ImageSource_featurized\"]},{\"EstimatorType\":\"CopyColumns\",\"Inputs\":[\"ImageSource_featurized\"],\"Outputs\":[\"Features\"]},{\"LabelColumnName\":\"Label\",\"EstimatorType\":\"ImageClassificationMulti\",\"Inputs\":[\"Features\"],\"Outputs\":[\"Score\"]},{\"EstimatorType\":\"MapKeyToValue\",\"Inputs\":[\"PredictedLabel\"],\"Outputs\":[\"PredictedLabel\"]}]",
+    "MetricName": "MicroAccuracy"
+  }
+}

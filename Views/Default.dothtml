@@ -1,0 +1,36 @@
+﻿@viewModel ImageClassification.ViewModels.DefaultViewModel, ImageClassification
+@masterPage Views/MasterPage.dotmaster
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="content">
+
+        <img src="Header.svg" class="content__background-image" />
+        <img src="Image.svg" class="content__image" />
+
+        <div class="content__text">
+
+            <h1>Face Mask Classification</h1>
+            <br />
+            <table style="border: hidden">
+                <tbody style="border: hidden">
+                    <tr style="border: hidden">
+                        <td style="border: hidden" align="center">
+                            <dot:FileUpload UploadedFiles="{value: Files}"
+                                            AllowMultipleFiles="false"
+                                            SuccessMessageText="Predicting..."
+                                            NumberOfFilesIndicatorText=""
+                                            UploadButtonText="Search Image"
+                                            AllowedFileTypes="jpg,png"
+                                            UploadCompleted="{command: Predict()}" />
+                        </td>
+                        <td style="border: hidden" align="center">
+                            <b>{{value: Result}}</b> {{value: Score}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</dot:Content>
